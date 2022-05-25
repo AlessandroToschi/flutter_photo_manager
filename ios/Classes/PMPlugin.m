@@ -34,6 +34,12 @@
     }];
 }
 
+- (void)detachFromEngineForRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
+    if(self.notificationManager) {
+        [self.notificationManager stopNotify];
+    }
+}
+
 - (void)initNotificationManager:(NSObject <FlutterPluginRegistrar> *)registrar {
     self.notificationManager = [PMNotificationManager managerWithRegistrar:registrar];
 }
